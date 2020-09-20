@@ -1,5 +1,11 @@
+import sys
+from os import environ
 import telebot
-from config import TG_TOKEN
+
+if 'TG_TOKEN' not in environ:
+    sys.exit(1)
+
+TG_TOKEN = environ['TG_TOKEN']
 
 # bot init
 bot = telebot.TeleBot(TG_TOKEN)
